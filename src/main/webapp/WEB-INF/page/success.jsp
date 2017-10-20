@@ -4,11 +4,6 @@
 <head>
 </head>
 <body>
-  <form action="helloworld/success" method="post">
-  	<button type="submit">TestPostMethod</button>
-  </form>
-  <a href="helloworld/success">hello</a><br></br>
-  
-  <a href="helloworld/testPathVariable/1">testPathVariable</a>
+  ${message}
 </body>
 </html>
