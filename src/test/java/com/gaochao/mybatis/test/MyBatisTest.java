@@ -8,11 +8,14 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.gaochao.bean.Employee;
 
 public class MyBatisTest {
 
+	private static final Logger logger = LoggerFactory.getLogger(MyBatisTest.class);
 	public SqlSessionFactory getSqlSessionFactory() throws IOException {
 		String resource = "config/mybatis-config.xml";
 		InputStream inputStream = Resources.getResourceAsStream(resource);
@@ -41,7 +44,8 @@ public class MyBatisTest {
 				try {
 					Employee employee = openSession.selectOne(
 							"getEmpById", 1);
-					System.out.println(employee);
+					logger.info("employee id is {} ", employee.getId());
+					//System.out.println(employee);
 				} finally {
 					openSession.close();
 				}
